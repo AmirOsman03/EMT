@@ -26,6 +26,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> findByName(String name) {
+        return bookRepository.findAllByNameContainingIgnoreCase(name);
+    }
+
+    @Override
     public List<Book> findAll() {
         return this.bookRepository.findAll();
     }

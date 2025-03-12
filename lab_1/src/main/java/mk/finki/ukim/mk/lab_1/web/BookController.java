@@ -86,4 +86,17 @@ public class BookController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    //SEARCH BOOK METHOD
+    @GetMapping("/search")
+    @Operation(summary = "Search a book", description = "Search a book by its name")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "404", description = "Book not found")
+    })
+    public List<Book> searchBooksByName(@RequestParam String name) {
+        if (name != null) {
+            return bookService.findByName(name);
+        }
+        return bookService.findAll();
+    }
 }
