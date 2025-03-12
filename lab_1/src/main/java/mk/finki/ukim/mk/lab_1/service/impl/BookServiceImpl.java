@@ -31,6 +31,19 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Optional<Book> rent(Long id) {
+        return bookRepository.findById(id)
+                .map(existingBook -> {
+                    if (existingBook.getAvailableCopies() > 0) {
+                        existingBook.setAvailableCopies(existingBook.getAvailableCopies() - 1);
+                        existingBook.setRented(true);
+                        return bookRepository.save(existingBook);
+                    }
+                    return null;
+                });
+    }
+
+    @Override
     public List<Book> findAll() {
         return this.bookRepository.findAll();
     }
@@ -51,10 +64,8 @@ public class BookServiceImpl implements BookService {
                     this.bookRepository.save(new Book(book.getName(),
                             this.authorRepository.findById(book.getAuthor()).get(),
                             book.getCategory(),
-                            book.getAvailableCopies(),
-                            book.getRented())
-                    )
-            );
+                            book.getAvailableCopies()
+                    )));
         }
         return Optional.empty();
     }

@@ -26,11 +26,11 @@ public class Book {
 
     public Book() {}
 
-    public Book(String name, Author author, Category category, Integer availableCopies, Boolean rented) {
+    public Book(String name, Author author, Category category, Integer availableCopies) {
         this.author = author;
         this.availableCopies = availableCopies;
         this.category = category;
         this.name = name;
-        this.rented = rented;
+        this.rented = false;
     }
 }

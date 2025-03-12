@@ -51,16 +51,16 @@ public class DataInitializer {
         authorRepository.save(author6);
 
         // Creating Books
-        Book book1 = new Book("1984", author1, Category.CLASSICS, 10, true);
-        Book book2 = new Book("Animal Farm", author1, Category.BIOGRAPHY, 5, false);
-        Book book3 = new Book("To Kill a Mockingbird", author2, Category.CLASSICS, 7, true);
-        Book book4 = new Book("Harry Potter and the Sorcerer’s Stone", author3, Category.FANTASY, 15, true);
-        Book book5 = new Book("Harry Potter and the Chamber of Secrets", author3, Category.FANTASY, 12, true);
-        Book book6 = new Book("Les Misérables", author4, Category.BIOGRAPHY, 8, true);
-        Book book7 = new Book("The Hunchback of Notre-Dame", author4, Category.CLASSICS, 6, false);
-        Book book8 = new Book("The Great Gatsby", author5, Category.DRAMA, 9, true);
-        Book book9 = new Book("Kafka on the Shore", author6, Category.FANTASY, 4, true);
-        Book book10 = new Book("Norwegian Wood", author6, Category.DRAMA, 3, false);
+        Book book1 = new Book("1984", author1, Category.CLASSICS, 10);
+        Book book2 = new Book("Animal Farm", author1, Category.BIOGRAPHY, 5);
+        Book book3 = new Book("To Kill a Mockingbird", author2, Category.CLASSICS, 7);
+        Book book4 = new Book("Harry Potter and the Sorcerer’s Stone", author3, Category.FANTASY, 15);
+        Book book5 = new Book("Harry Potter and the Chamber of Secrets", author3, Category.FANTASY, 12);
+        Book book6 = new Book("Les Misérables", author4, Category.BIOGRAPHY, 8);
+        Book book7 = new Book("The Hunchback of Notre-Dame", author4, Category.CLASSICS, 6);
+        Book book8 = new Book("The Great Gatsby", author5, Category.DRAMA, 9);
+        Book book9 = new Book("Kafka on the Shore", author6, Category.FANTASY, 4);
+        Book book10 = new Book("Norwegian Wood", author6, Category.DRAMA, 3);
 
         bookRepository.save(book1);
         bookRepository.save(book2);

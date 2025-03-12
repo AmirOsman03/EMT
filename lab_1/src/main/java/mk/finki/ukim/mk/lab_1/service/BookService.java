@@ -18,4 +18,6 @@ public interface BookService {
     void deleteById(Long id);
 
     List<Book> findByName(String name);
+
+    Optional<Book> rent(Long id);
 }

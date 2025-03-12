@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
                 )
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/api/books", "/api/books/search**")
+                        .requestMatchers("/", "/api/books", "/api/books/search**", "/api/books/rent/**")
                         .permitAll()
                         .requestMatchers("/api/books/delete/**", "/api/books/edit/**", "/api/books/add/**", "/api/books**")
                         .hasAnyRole("LIBRARIAN", "ADMIN")

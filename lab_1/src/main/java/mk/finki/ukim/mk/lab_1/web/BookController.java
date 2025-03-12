@@ -99,4 +99,12 @@ public class BookController {
         }
         return bookService.findAll();
     }
+
+    //RENT BOOK
+    @PostMapping("/rent/{id}")
+    public ResponseEntity<Book> rent(@PathVariable Long id) {
+        return bookService.rent(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.badRequest().build());
+    }
 }

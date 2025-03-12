@@ -17,11 +17,11 @@ public class BookDto {
 
     public BookDto() {}
 
-    public BookDto(String name, Long author, Category category, Integer availableCopies, Boolean rented) {
+    public BookDto(String name, Long author, Category category, Integer availableCopies) {
         this.author = author;
         this.availableCopies = availableCopies;
         this.category = category;
         this.name = name;
-        this.rented = rented;
+        this.rented = false;
     }
 }
