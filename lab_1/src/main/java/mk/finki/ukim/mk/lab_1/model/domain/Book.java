@@ -1,4 +1,4 @@
-package mk.finki.ukim.mk.lab_1.model;
+package mk.finki.ukim.mk.lab_1.model.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,6 +25,14 @@ public class Book {
     private Boolean rented;
 
     public Book() {}
+
+    public Book(String name, Category category, Author author, Integer availableCopies, Boolean rented) {
+        this.name = name;
+        this.category = category;
+        this.author = author;
+        this.availableCopies = availableCopies;
+        this.rented = false;
+    }
 
     public Book(String name, Author author, Category category, Integer availableCopies) {
         this.author = author;

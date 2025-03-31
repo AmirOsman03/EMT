@@ -1,6 +1,6 @@
-package mk.finki.ukim.mk.lab_1.service;
+package mk.finki.ukim.mk.lab_1.service.domain;
 
-import mk.finki.ukim.mk.lab_1.model.Country;
+import mk.finki.ukim.mk.lab_1.model.domain.Country;
 
 import java.util.List;
 import java.util.Optional;

@@ -4,9 +4,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import mk.finki.ukim.mk.lab_1.model.Book;
-import mk.finki.ukim.mk.lab_1.model.dto.BookDto;
-import mk.finki.ukim.mk.lab_1.service.BookService;
+import mk.finki.ukim.mk.lab_1.dto.CreateBookDto;
+import mk.finki.ukim.mk.lab_1.dto.DisplayBookDto;
+import mk.finki.ukim.mk.lab_1.dto.UpdateBookDto;
+import mk.finki.ukim.mk.lab_1.service.application.BookApplicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,10 @@ import java.util.List;
 @RequestMapping("/api/books")
 @Tag(name = "Books", description = "API for managing books in the library")
 public class BookController {
-    private final BookService bookService;
+    private final BookApplicationService bookApplicationService;
 
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+    public BookController(BookApplicationService bookApplicationService) {
+        this.bookApplicationService = bookApplicationService;
     }
 
     //GET ALL BOOKS METHOD
@@ -29,8 +30,8 @@ public class BookController {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved list"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    public List<Book> findAll() {
-        return bookService.findAll();
+    public List<DisplayBookDto> findAll() {
+        return bookApplicationService.findAll();
     }
 
     //FIND BOOK METHOD
@@ -40,8 +41,8 @@ public class BookController {
             @ApiResponse(responseCode = "200", description = "Book found"),
             @ApiResponse(responseCode = "404", description = "Book not found")
     })
-    public ResponseEntity<Book> findById(@PathVariable Long id) {
-        return bookService.findById(id).map(ResponseEntity::ok)
+    public ResponseEntity<DisplayBookDto> findById(@PathVariable Long id) {
+        return bookApplicationService.findById(id).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -52,8 +53,8 @@ public class BookController {
             @ApiResponse(responseCode = "201", description = "Book successfully created"),
             @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
-    public ResponseEntity<Book> save(@RequestBody BookDto book) {
-        return bookService.save(book)
+    public ResponseEntity<DisplayBookDto> save(@RequestBody CreateBookDto book) {
+        return bookApplicationService.save(book)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -66,8 +67,8 @@ public class BookController {
             @ApiResponse(responseCode = "404", description = "Book not found"),
             @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
-    public ResponseEntity<Book> update(@PathVariable Long id, @RequestBody BookDto book) {
-        return bookService.update(id, book)
+    public ResponseEntity<DisplayBookDto> update(@PathVariable Long id, @RequestBody UpdateBookDto book) {
+        return bookApplicationService.update(id, book)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -80,8 +81,8 @@ public class BookController {
             @ApiResponse(responseCode = "404", description = "Book not found")
     })
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (bookService.findById(id).isPresent()) {
-            bookService.deleteById(id);
+        if (bookApplicationService.findById(id).isPresent()) {
+            bookApplicationService.deleteById(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
@@ -93,17 +94,17 @@ public class BookController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "404", description = "Book not found")
     })
-    public List<Book> searchBooksByName(@RequestParam String name) {
+    public List<DisplayBookDto> searchBooksByName(@RequestParam String name) {
         if (name != null) {
-            return bookService.findByName(name);
+            return bookApplicationService.findByName(name);
         }
-        return bookService.findAll();
+        return bookApplicationService.findAll();
     }
 
     //RENT BOOK
     @PostMapping("/rent/{id}")
-    public ResponseEntity<Book> rent(@PathVariable Long id) {
-        return bookService.rent(id)
+    public ResponseEntity<DisplayBookDto> rent(@PathVariable Long id) {
+        return bookApplicationService.rent(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.badRequest().build());
     }

@@ -1,9 +1,9 @@
 package mk.finki.ukim.mk.lab_1.config;
 
 import jakarta.annotation.PostConstruct;
-import mk.finki.ukim.mk.lab_1.model.Author;
-import mk.finki.ukim.mk.lab_1.model.Book;
-import mk.finki.ukim.mk.lab_1.model.Country;
+import mk.finki.ukim.mk.lab_1.model.domain.Author;
+import mk.finki.ukim.mk.lab_1.model.domain.Book;
+import mk.finki.ukim.mk.lab_1.model.domain.Country;
 import mk.finki.ukim.mk.lab_1.model.enums.Category;
 import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.BookRepository;
