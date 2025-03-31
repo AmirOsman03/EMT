@@ -4,10 +4,14 @@ import jakarta.annotation.PostConstruct;
 import mk.finki.ukim.mk.lab_1.model.domain.Author;
 import mk.finki.ukim.mk.lab_1.model.domain.Book;
 import mk.finki.ukim.mk.lab_1.model.domain.Country;
+import mk.finki.ukim.mk.lab_1.model.domain.User;
 import mk.finki.ukim.mk.lab_1.model.enums.Category;
+import mk.finki.ukim.mk.lab_1.model.enums.Role;
 import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.BookRepository;
 import mk.finki.ukim.mk.lab_1.repository.CountryRepository;
+import mk.finki.ukim.mk.lab_1.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,11 +19,15 @@ public class DataInitializer {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
     private final CountryRepository countryRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public DataInitializer(BookRepository bookRepository, AuthorRepository authorRepository, CountryRepository countryRepository) {
+    public DataInitializer(BookRepository bookRepository, AuthorRepository authorRepository, CountryRepository countryRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.countryRepository = countryRepository;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct
@@ -72,5 +80,21 @@ public class DataInitializer {
         bookRepository.save(book8);
         bookRepository.save(book9);
         bookRepository.save(book10);
+
+        userRepository.save(new User(
+                "user",
+                passwordEncoder.encode("user"),
+                "user",
+                "user",
+                Role.ROLE_USER
+        ));
+
+        userRepository.save(new User(
+                "lib",
+                passwordEncoder.encode("lib"),
+                "lib",
+                "lib",
+                Role.ROLE_LIBRARIAN
+        ));
     }
 }
