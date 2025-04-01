@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
-@Tag(name = "User API", description = "Endpoints for user authentication and registration") // Swagger tag
+@Tag(name = "User", description = "API for user authentication and registration") // Swagger tag
 public class UserController {
 
     private final UserApplicationService userApplicationService;

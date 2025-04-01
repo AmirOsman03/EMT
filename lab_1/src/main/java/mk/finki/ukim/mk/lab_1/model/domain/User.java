@@ -37,8 +37,8 @@ public class User implements UserDetails {
     // default:
     // to-one -> FetchType.EAGER
     // to-many -> FetchType.LAZY
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    private List<Wishlist> wishlists;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Wishlist> wishlists;
 
     public User() {
     }

@@ -68,7 +68,7 @@ public class DataInitializer {
         Book book7 = new Book("The Hunchback of Notre-Dame", author4, Category.CLASSICS, 6);
         Book book8 = new Book("The Great Gatsby", author5, Category.DRAMA, 9);
         Book book9 = new Book("Kafka on the Shore", author6, Category.FANTASY, 4);
-        Book book10 = new Book("Norwegian Wood", author6, Category.DRAMA, 3);
+        Book book10 = new Book("Norwegian Wood", author6, Category.DRAMA, 0);
 
         bookRepository.save(book1);
         bookRepository.save(book2);
