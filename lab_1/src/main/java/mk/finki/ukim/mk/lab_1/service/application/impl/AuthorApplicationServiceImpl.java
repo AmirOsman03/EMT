@@ -46,17 +46,21 @@ public class AuthorApplicationServiceImpl implements AuthorApplicationService {
         Optional<Country> country = countryService.findById(updateAuthorDto.country());
 
         return authorService.update(id,
-                updateAuthorDto.toAuthor(country.orElse(null)))
+                        updateAuthorDto.toAuthor(country.orElse(null)))
                 .map(DisplayAuthorDto::from);
     }
 
     @Override
     public Optional<DisplayAuthorDto> findById(Long id) {
-        return authorService.findById(id).map(DisplayAuthorDto::from);
+        return authorService.findById(id)
+                .map(DisplayAuthorDto::from);
     }
 
     @Override
     public List<DisplayAuthorDto> findAll() {
-        return authorService.findAll().stream().map(DisplayAuthorDto::from).toList();
+        return authorService.findAll()
+                .stream()
+                .map(DisplayAuthorDto::from)
+                .toList();
     }
 }

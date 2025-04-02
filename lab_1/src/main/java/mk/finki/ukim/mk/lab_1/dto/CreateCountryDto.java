@@ -17,7 +17,9 @@ public record CreateCountryDto(
     }
 
     public static List<CreateCountryDto> from(List<Country> countries) {
-        return countries.stream().map(CreateCountryDto::from).collect(Collectors.toList());
+        return countries.stream()
+                .map(CreateCountryDto::from)
+                .collect(Collectors.toList());
     }
 
     public Country toCountry() {
