@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/rent")
-@Tag(name = "Rent API", description = "API за изнајмување на книги")
+@Tag(name = "Rent API", description = "API for renting books")
 public class UserBookController {
 
     private final UserBookService userBookService;

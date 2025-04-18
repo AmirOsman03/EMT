@@ -2,6 +2,7 @@ package mk.finki.ukim.mk.lab_1.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -15,6 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
+@Profile("dev")
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -42,7 +44,14 @@ public class WebSecurityConfig {
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(
                         corsConfigurationSource()))
                 .authorizeHttpRequests(requests -> requests
-                        .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/api/swagger-ui/**"
+                        ).permitAll()
+                        .requestMatchers(
+                                "/api/rent/**"
+                        ).hasRole("USER")
+                        .anyRequest()
+                        .hasAnyRole("ADMIN", "LIBRARIAN")
                 )
                 .formLogin((form) -> form.loginProcessingUrl(
                                 "/api/user/login")

@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:17.4
+    restart: always
+    environment:
+      POSTGRES_USER: emt
+      POSTGRES_PASSWORD: emt
+      POSTGRES_DB: book_shop
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "2345:5432"
+volumes:
+  postgres_data:
