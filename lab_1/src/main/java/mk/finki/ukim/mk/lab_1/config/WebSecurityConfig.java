@@ -16,7 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-@Profile("dev")
+@Profile("test")
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
