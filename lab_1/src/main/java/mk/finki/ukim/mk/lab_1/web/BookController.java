@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mk.finki.ukim.mk.lab_1.dto.CreateBookDto;
 import mk.finki.ukim.mk.lab_1.dto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.UpdateBookDto;
+import mk.finki.ukim.mk.lab_1.model.views.BooksPerAuthorView;
 import mk.finki.ukim.mk.lab_1.service.application.BookApplicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -108,4 +109,16 @@ public class BookController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.badRequest().build());
     }
+
+    // ADD METHOD FOR GETTING BOOK COUNT BY AUTHOR
+    @GetMapping("/by-author")
+    @Operation(summary = "Get the number of books per author", description = "Returns the number of books for each author")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved the book count"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public List<BooksPerAuthorView> getBooksCountByAuthor() {
+        return bookApplicationService.getBooksCountByAuthor();
+    }
+
 }

@@ -3,6 +3,7 @@ package mk.finki.ukim.mk.lab_1.service.domain.impl;
 import mk.finki.ukim.mk.lab_1.model.domain.Book;
 import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.BookRepository;
+import mk.finki.ukim.mk.lab_1.repository.BooksPerAuthorViewRepository;
 import mk.finki.ukim.mk.lab_1.service.domain.BookService;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,15 @@ import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
+
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
+    private final BooksPerAuthorViewRepository booksPerAuthorViewRepository;
 
-    public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository) {
+    public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository, BooksPerAuthorViewRepository booksPerAuthorViewRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
+        this.booksPerAuthorViewRepository = booksPerAuthorViewRepository;
     }
 
     @Override
@@ -92,4 +96,10 @@ public class BookServiceImpl implements BookService {
             return bookRepository.save(existingBook);
         });
     }
+
+    @Override
+    public void refreshMaterializedView() {
+        booksPerAuthorViewRepository.refreshMaterializedViews();
+    }
+
 }

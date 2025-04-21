@@ -5,7 +5,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import mk.finki.ukim.mk.lab_1.dto.*;
+import mk.finki.ukim.mk.lab_1.model.domain.Author;
+import mk.finki.ukim.mk.lab_1.model.projections.AuthorProjection;
+import mk.finki.ukim.mk.lab_1.model.views.AuthorsPerCountryView;
 import mk.finki.ukim.mk.lab_1.service.application.AuthorApplicationService;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +19,7 @@ import java.util.List;
 @RequestMapping("/api/authors")
 @Tag(name = "Authors", description = "API for managing authors in the library")
 public class AuthorController {
+
     private final AuthorApplicationService authorApplicationService;
 
     public AuthorController(AuthorApplicationService authorApplicationService) {
@@ -84,5 +89,23 @@ public class AuthorController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/by-country")
+    @Operation(
+            summary = "Get authors per country",
+            description = "Returns the list of authors grouped by country with the number of authors per country"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved authors per country"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public List<AuthorsPerCountryView> getAuthorsPerCountry() {
+        return authorApplicationService.getAuthorsPerCountry();
+    }
+
+    @GetMapping("/names")
+    public List<AuthorProjection> getNameAndSurname() {
+        return authorApplicationService.getAllByNameAndSurname();
     }
 }

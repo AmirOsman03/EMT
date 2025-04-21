@@ -57,13 +57,6 @@ public class JwtSecurityWebConfig {
                                         "/api/user/register",
                                         "/api/user/login"
                                 ).permitAll()
-                                .requestMatchers(
-                                        "/api/authors",
-                                        "/api/countries",
-                                        "/api/wishlists",
-                                        "/api/books**"
-                                )
-                                .hasRole("USER")
                                 .anyRequest()
                                 .hasAnyRole("ADMIN", "LIBRARIAN")
                 )

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AuthorService {
+
     List<Author> findAll();
 
     Optional<Author> findById(Long id);
@@ -15,4 +16,6 @@ public interface AuthorService {
     Optional<Author> update(Long id, Author author);
 
     void deleteById(Long id);
+
+    void refreshMaterializedView();
 }

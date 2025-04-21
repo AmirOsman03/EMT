@@ -23,19 +23,29 @@ public interface UserRepository extends JpaRepository<User, String> {
             attributePaths = {"carts"}
     )
     @Query("select u from User u")
-    List<User> fetchAll();
+    List<User> fetchAllCarts();
 
     @EntityGraph(
             type = EntityGraph.EntityGraphType.LOAD,
             attributePaths = {"carts"}
     )
     @Query("select u from User u")
-    List<User> loadAll();
+    List<User> loadAllCarts();
 
     UserProjection findByRole(Role role);
 
     @Query("select u.username, u.name, u.surname from User u")
     List<UserProjection> takeUsernameAndNameAndSurnameByProjection();
+
+    @EntityGraph(
+            type = EntityGraph.EntityGraphType.LOAD,
+            attributePaths = {"wishlists"}
+    )
+    @Query("select u from User u")
+    List<User> loadAllWishlists();
+
+    // FETCH -> we will get the user we will get all the carts with him
+    // LOAD -> we will get the user, BUT if we NEED the carts we have to get them explicitly
 
 }
 

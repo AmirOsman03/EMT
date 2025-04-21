@@ -3,6 +3,9 @@ package mk.finki.ukim.mk.lab_1.service.application;
 import mk.finki.ukim.mk.lab_1.dto.CreateAuthorDto;
 import mk.finki.ukim.mk.lab_1.dto.DisplayAuthorDto;
 import mk.finki.ukim.mk.lab_1.dto.UpdateAuthorDto;
+import mk.finki.ukim.mk.lab_1.model.projections.AuthorProjection;
+import mk.finki.ukim.mk.lab_1.model.projections.UserProjection;
+import mk.finki.ukim.mk.lab_1.model.views.AuthorsPerCountryView;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,5 +21,9 @@ public interface AuthorApplicationService {
     List<DisplayAuthorDto> findAll();
 
     void deleteById(Long id);
+
+    List<AuthorsPerCountryView> getAuthorsPerCountry();
+
+    List<AuthorProjection> getAllByNameAndSurname();
 
 }

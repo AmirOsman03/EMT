@@ -3,6 +3,7 @@ package mk.finki.ukim.mk.lab_1.service.application;
 import mk.finki.ukim.mk.lab_1.dto.CreateBookDto;
 import mk.finki.ukim.mk.lab_1.dto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.UpdateBookDto;
+import mk.finki.ukim.mk.lab_1.model.views.BooksPerAuthorView;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,5 +23,7 @@ public interface BookApplicationService {
     List<DisplayBookDto> findByName(String name);
 
     Optional<DisplayBookDto> rent(Long id);
+
+    List<BooksPerAuthorView> getBooksCountByAuthor();
 
 }

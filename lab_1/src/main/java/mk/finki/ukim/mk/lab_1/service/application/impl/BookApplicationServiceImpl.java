@@ -4,6 +4,8 @@ import mk.finki.ukim.mk.lab_1.dto.CreateBookDto;
 import mk.finki.ukim.mk.lab_1.dto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.UpdateBookDto;
 import mk.finki.ukim.mk.lab_1.model.domain.Author;
+import mk.finki.ukim.mk.lab_1.model.views.BooksPerAuthorView;
+import mk.finki.ukim.mk.lab_1.repository.BooksPerAuthorViewRepository;
 import mk.finki.ukim.mk.lab_1.service.application.BookApplicationService;
 import mk.finki.ukim.mk.lab_1.service.domain.AuthorService;
 import mk.finki.ukim.mk.lab_1.service.domain.BookService;
@@ -17,10 +19,12 @@ import java.util.Optional;
 public class BookApplicationServiceImpl implements BookApplicationService {
     private final BookService bookService;
     private final AuthorService authorService;
+    private final BooksPerAuthorViewRepository booksPerAuthorViewRepository;
 
-    public BookApplicationServiceImpl(BookService bookService, AuthorService authorService) {
+    public BookApplicationServiceImpl(BookService bookService, AuthorService authorService, BooksPerAuthorViewRepository booksPerAuthorViewRepository) {
         this.bookService = bookService;
         this.authorService = authorService;
+        this.booksPerAuthorViewRepository = booksPerAuthorViewRepository;
     }
 
     @Override
@@ -66,5 +70,10 @@ public class BookApplicationServiceImpl implements BookApplicationService {
     @Override
     public List<DisplayBookDto> findAll() {
         return bookService.findAll().stream().map(DisplayBookDto::from).toList();
+    }
+
+    @Override
+    public List<BooksPerAuthorView> getBooksCountByAuthor() {
+        return booksPerAuthorViewRepository.findAll();
     }
 }
