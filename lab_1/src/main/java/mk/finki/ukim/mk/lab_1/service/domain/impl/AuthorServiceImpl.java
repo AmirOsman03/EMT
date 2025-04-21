@@ -1,7 +1,7 @@
 package mk.finki.ukim.mk.lab_1.service.domain.impl;
 
 import mk.finki.ukim.mk.lab_1.model.domain.Author;
-import mk.finki.ukim.mk.lab_1.model.events.AuthorCreatedEvent;
+import mk.finki.ukim.mk.lab_1.events.AuthorCreatedEvent;
 import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.AuthorsPerCountryViewRepository;
 import mk.finki.ukim.mk.lab_1.service.domain.AuthorService;

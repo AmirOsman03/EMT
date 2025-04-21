@@ -1,4 +1,4 @@
-package mk.finki.ukim.mk.lab_1.model.events;
+package mk.finki.ukim.mk.lab_1.events;
 
 import lombok.Data;
 import lombok.Getter;

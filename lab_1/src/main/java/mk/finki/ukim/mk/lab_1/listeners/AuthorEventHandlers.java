@@ -1,7 +1,6 @@
 package mk.finki.ukim.mk.lab_1.listeners;
 
-import mk.finki.ukim.mk.lab_1.model.domain.Author;
-import mk.finki.ukim.mk.lab_1.model.events.AuthorCreatedEvent;
+import mk.finki.ukim.mk.lab_1.events.AuthorCreatedEvent;
 import mk.finki.ukim.mk.lab_1.service.domain.AuthorService;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
