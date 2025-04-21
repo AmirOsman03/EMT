@@ -24,7 +24,7 @@ public class UserApplicationServiceImpl implements UserApplicationService {
     }
 
     @Override
-    public Optional<DisplayUserDto> register(CreateUserDto createUserDto) {
+    public Optional<LoginResponseDto> register(CreateUserDto createUserDto) {
         User user = userService.register(
                 createUserDto.username(),
                 createUserDto.password(),
@@ -33,7 +33,8 @@ public class UserApplicationServiceImpl implements UserApplicationService {
                 createUserDto.surname(),
                 createUserDto.role()
         );
-        return Optional.of(DisplayUserDto.from(user));
+        String token = jwtHelper.generateToken(user);
+        return Optional.of(new LoginResponseDto(token));
     }
 
     @Override

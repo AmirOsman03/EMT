@@ -37,7 +37,7 @@ public class UserController {
             )}
     )
     @PostMapping("/register")
-    public ResponseEntity<DisplayUserDto> register(@RequestBody CreateUserDto createUserDto) {
+    public ResponseEntity<LoginResponseDto> register(@RequestBody CreateUserDto createUserDto) {
         try {
             return userApplicationService.register(createUserDto)
                     .map(ResponseEntity::ok)

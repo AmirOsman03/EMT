@@ -8,7 +8,7 @@ import mk.finki.ukim.mk.lab_1.dto.LoginUserDto;
 import java.util.Optional;
 
 public interface UserApplicationService {
-    Optional<DisplayUserDto> register(CreateUserDto createUserDto);
+    Optional<LoginResponseDto> register(CreateUserDto createUserDto);
 
     Optional<LoginResponseDto> login(LoginUserDto loginUserDto);
 
