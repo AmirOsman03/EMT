@@ -1,6 +1,6 @@
 package mk.finki.ukim.mk.lab_1.service.application.impl;
 
-import mk.finki.ukim.mk.lab_1.dto.DisplayBookDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.WishlistDto;
 import mk.finki.ukim.mk.lab_1.service.application.WishlistApplicationService;
 import mk.finki.ukim.mk.lab_1.service.domain.UserService;

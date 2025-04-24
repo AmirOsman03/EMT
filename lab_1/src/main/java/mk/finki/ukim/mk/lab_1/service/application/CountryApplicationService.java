@@ -1,6 +1,8 @@
 package mk.finki.ukim.mk.lab_1.service.application;
 
-import mk.finki.ukim.mk.lab_1.dto.*;
+import mk.finki.ukim.mk.lab_1.dto.createDto.CreateCountryDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayCountryDto;
+import mk.finki.ukim.mk.lab_1.dto.updateDto.UpdateCountryDto;
 
 import java.util.List;
 import java.util.Optional;

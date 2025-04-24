@@ -1,11 +1,10 @@
 package mk.finki.ukim.mk.lab_1.service.application.impl;
 
-import mk.finki.ukim.mk.lab_1.dto.CreateAuthorDto;
-import mk.finki.ukim.mk.lab_1.dto.DisplayAuthorDto;
-import mk.finki.ukim.mk.lab_1.dto.UpdateAuthorDto;
+import mk.finki.ukim.mk.lab_1.dto.createDto.CreateAuthorDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayAuthorDto;
+import mk.finki.ukim.mk.lab_1.dto.updateDto.UpdateAuthorDto;
 import mk.finki.ukim.mk.lab_1.model.domain.Country;
 import mk.finki.ukim.mk.lab_1.model.projections.AuthorProjection;
-import mk.finki.ukim.mk.lab_1.model.projections.UserProjection;
 import mk.finki.ukim.mk.lab_1.model.views.AuthorsPerCountryView;
 import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.AuthorsPerCountryViewRepository;

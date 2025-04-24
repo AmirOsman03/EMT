@@ -4,12 +4,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import mk.finki.ukim.mk.lab_1.dto.*;
-import mk.finki.ukim.mk.lab_1.model.domain.Author;
+import mk.finki.ukim.mk.lab_1.dto.createDto.CreateAuthorDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayAuthorDto;
+import mk.finki.ukim.mk.lab_1.dto.updateDto.UpdateAuthorDto;
 import mk.finki.ukim.mk.lab_1.model.projections.AuthorProjection;
 import mk.finki.ukim.mk.lab_1.model.views.AuthorsPerCountryView;
 import mk.finki.ukim.mk.lab_1.service.application.AuthorApplicationService;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
