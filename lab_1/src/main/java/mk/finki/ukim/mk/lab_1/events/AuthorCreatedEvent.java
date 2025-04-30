@@ -1,6 +1,5 @@
 package mk.finki.ukim.mk.lab_1.events;
 
-import lombok.Data;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
