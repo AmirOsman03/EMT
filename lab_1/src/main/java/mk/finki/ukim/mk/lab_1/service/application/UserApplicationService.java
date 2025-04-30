@@ -1,9 +1,9 @@
 package mk.finki.ukim.mk.lab_1.service.application;
 
-import mk.finki.ukim.mk.lab_1.dto.CreateUserDto;
-import mk.finki.ukim.mk.lab_1.dto.DisplayUserDto;
-import mk.finki.ukim.mk.lab_1.dto.LoginResponseDto;
-import mk.finki.ukim.mk.lab_1.dto.LoginUserDto;
+import mk.finki.ukim.mk.lab_1.dto.createDto.CreateUserDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayUserDto;
+import mk.finki.ukim.mk.lab_1.dto.loginDto.LoginResponseDto;
+import mk.finki.ukim.mk.lab_1.dto.loginDto.LoginUserDto;
 
 import java.util.Optional;
 

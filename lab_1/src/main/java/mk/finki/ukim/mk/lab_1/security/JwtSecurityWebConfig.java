@@ -1,6 +1,7 @@
 package mk.finki.ukim.mk.lab_1.security;
 
 import mk.finki.ukim.mk.lab_1.config.CustomUsernamePasswordAuthenticationProvider;
+import mk.finki.ukim.mk.lab_1.web.filter.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

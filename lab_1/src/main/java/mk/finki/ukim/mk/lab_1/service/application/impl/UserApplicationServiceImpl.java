@@ -1,9 +1,9 @@
 package mk.finki.ukim.mk.lab_1.service.application.impl;
 
-import mk.finki.ukim.mk.lab_1.dto.CreateUserDto;
-import mk.finki.ukim.mk.lab_1.dto.DisplayUserDto;
-import mk.finki.ukim.mk.lab_1.dto.LoginResponseDto;
-import mk.finki.ukim.mk.lab_1.dto.LoginUserDto;
+import mk.finki.ukim.mk.lab_1.dto.createDto.CreateUserDto;
+import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayUserDto;
+import mk.finki.ukim.mk.lab_1.dto.loginDto.LoginResponseDto;
+import mk.finki.ukim.mk.lab_1.dto.loginDto.LoginUserDto;
 import mk.finki.ukim.mk.lab_1.model.domain.User;
 import mk.finki.ukim.mk.lab_1.security.JwtHelper;
 import mk.finki.ukim.mk.lab_1.service.application.UserApplicationService;
