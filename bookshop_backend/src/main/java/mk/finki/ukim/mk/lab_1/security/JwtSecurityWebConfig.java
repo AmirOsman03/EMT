@@ -50,16 +50,18 @@ public class JwtSecurityWebConfig {
                 )
                 .authorizeHttpRequests(authorizeHttpRequestsCustomizer ->
                         authorizeHttpRequestsCustomizer
-                                .requestMatchers(
-                                        "/swagger-ui/**",
-                                        "/swagger-ui.html",
-                                        "/v3/api-docs/**",
-                                        "/api/books",
-                                        "/api/user/register",
-                                        "/api/user/login"
-                                ).permitAll()
                                 .anyRequest()
-                                .hasAnyRole("ADMIN", "LIBRARIAN")
+                                .permitAll()
+//                                .requestMatchers(
+//                                        "/swagger-ui/**",
+//                                        "/swagger-ui.html",
+//                                        "/v3/api-docs/**",
+//                                        "/api/books",
+//                                        "/api/user/register",
+//                                        "/api/user/login"
+//                                ).permitAll()
+//                                .anyRequest()
+//                                .hasAnyRole("ADMIN", "LIBRARIAN")
                 )
                 .sessionManagement(sessionManagementConfigurer ->
                         sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

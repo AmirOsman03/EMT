@@ -4,7 +4,9 @@ import mk.finki.ukim.mk.lab_1.dto.createDto.CreateBookDto;
 import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.updateDto.UpdateBookDto;
 import mk.finki.ukim.mk.lab_1.model.views.BooksPerAuthorView;
+import org.springframework.data.domain.Page;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +27,7 @@ public interface BookApplicationService {
     Optional<DisplayBookDto> rent(Long id);
 
     List<BooksPerAuthorView> getBooksCountByAuthor();
+
+    Page<DisplayBookDto> findAll(Pageable pageable);
 
 }

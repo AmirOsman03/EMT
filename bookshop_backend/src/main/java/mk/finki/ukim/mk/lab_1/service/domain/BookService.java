@@ -1,6 +1,8 @@
 package mk.finki.ukim.mk.lab_1.service.domain;
 
 import mk.finki.ukim.mk.lab_1.model.domain.Book;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,5 +24,7 @@ public interface BookService {
     Optional<Book> rent(Long id);
 
     void refreshMaterializedView();
+
+    Page<Book> findAll(Pageable pageable);
 
 }

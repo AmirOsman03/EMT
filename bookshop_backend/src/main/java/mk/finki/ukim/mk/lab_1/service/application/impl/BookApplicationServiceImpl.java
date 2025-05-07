@@ -9,8 +9,10 @@ import mk.finki.ukim.mk.lab_1.repository.BooksPerAuthorViewRepository;
 import mk.finki.ukim.mk.lab_1.service.application.BookApplicationService;
 import mk.finki.ukim.mk.lab_1.service.domain.AuthorService;
 import mk.finki.ukim.mk.lab_1.service.domain.BookService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,5 +77,11 @@ public class BookApplicationServiceImpl implements BookApplicationService {
     @Override
     public List<BooksPerAuthorView> getBooksCountByAuthor() {
         return booksPerAuthorViewRepository.findAll();
+    }
+
+    @Override
+    public Page<DisplayBookDto> findAll(Pageable pageable) {
+        return bookService.findAll(pageable)
+                .map(DisplayBookDto::from);
     }
 }

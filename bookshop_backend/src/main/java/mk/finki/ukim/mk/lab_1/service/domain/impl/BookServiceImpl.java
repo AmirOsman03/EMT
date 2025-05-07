@@ -5,6 +5,8 @@ import mk.finki.ukim.mk.lab_1.repository.AuthorRepository;
 import mk.finki.ukim.mk.lab_1.repository.BookRepository;
 import mk.finki.ukim.mk.lab_1.repository.BooksPerAuthorViewRepository;
 import mk.finki.ukim.mk.lab_1.service.domain.BookService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -100,6 +102,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public void refreshMaterializedView() {
         booksPerAuthorViewRepository.refreshMaterializedViews();
+    }
+
+    @Override
+    public Page<Book> findAll(Pageable pageable) {
+        return bookRepository.findAll(pageable);
     }
 
 }
