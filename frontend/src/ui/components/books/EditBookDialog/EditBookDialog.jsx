@@ -18,7 +18,7 @@ const initialFormData = {
     "author": "",
     "availableCopies": "",
     "renter": false,
-}
+};
 
 const EditBookDialog = ({open, onClose, book, onEdit}) => {
     const [formData, setFormData] = useState(initialFormData);

@@ -34,7 +34,6 @@ const BooksPage = () => {
                 onAdd={onAdd}
             />
         </>
-
     );
 };
 

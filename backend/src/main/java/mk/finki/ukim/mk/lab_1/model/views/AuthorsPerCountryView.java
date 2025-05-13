@@ -8,7 +8,7 @@ import org.hibernate.annotations.Subselect;
 
 @Data
 @Entity
-@Subselect("SELECT * FROM public.authors_per_country")
+@Subselect("SELECT * FROM authors_per_country")
 public class AuthorsPerCountryView {
 
     @Id

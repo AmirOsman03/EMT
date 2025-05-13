@@ -15,7 +15,7 @@ public class Author {
 
     private String surname;
 
-    @ManyToOne
+    @ManyToOne()
     private Country country;
 
     public Author() {}

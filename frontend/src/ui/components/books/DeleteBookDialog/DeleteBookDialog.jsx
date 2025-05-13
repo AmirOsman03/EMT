@@ -1,25 +1,22 @@
-import React from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 
-const DeleteBookDialog = ({open, onClose, book, onDelete}) => {
-
-    const handleSubmit = () => {
-        onDelete(book.id);
-        onClose();
-    };
+const DeleteBookDialog = ({ open, onClose, book, onDelete }) => {
+    if (!book) {
+        return null; // или прикажи Loading...
+    }
 
     return (
         <Dialog open={open} onClose={onClose}>
             <DialogTitle>Delete Book</DialogTitle>
             <DialogContent>
-                <DialogContentText>
-                    Are you sure you want to delete <strong>{book.name}</strong>?
-                </DialogContentText>
-                <DialogActions>
-                    <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={handleSubmit} color="error" variant="contained">Delete</Button>
-                </DialogActions>
+                Are you sure you want to delete <strong>{book.name}</strong>?
             </DialogContent>
+            <DialogActions>
+                <Button onClick={onClose}>Cancel</Button>
+                <Button onClick={() => onDelete(book.id)} color="error">
+                    Delete
+                </Button>
+            </DialogActions>
         </Dialog>
     );
 };
