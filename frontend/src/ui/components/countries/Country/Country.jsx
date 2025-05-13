@@ -12,7 +12,7 @@ const Country = ({country}) => {
                     {country.name}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                    <strong>Continent:</strong> {country.continent ? `${country.continent}` : "Loading..."}
+                    <strong>Continent:</strong> {country.continent}
                 </Typography>
             </CardContent>
             <CardActions sx={{justifyContent: "space-between"}}>

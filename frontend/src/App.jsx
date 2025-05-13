@@ -5,6 +5,7 @@ import BooksPage from "./ui/pages/BooksPage/BooksPage.jsx";
 import Navbar from "./ui/components/layout/Navbar/Navbar.jsx";
 import AuthorsPage from "./ui/pages/AuthorsPage/AuthorsPage.jsx";
 import CountriesPage from "./ui/pages/CountriesPage/CountriesPage.jsx";
+import BookDetails from "./ui/components/books/BookDetails/BookDetails.jsx";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="books" element={<BooksPage/>}/>
                 <Route path="authors" element={<AuthorsPage/>}/>
                 <Route path="countries" element={<CountriesPage/>}/>
+                <Route path="books/:id" element={<BookDetails/>}/>
             </Routes>
         </BrowserRouter>
     );

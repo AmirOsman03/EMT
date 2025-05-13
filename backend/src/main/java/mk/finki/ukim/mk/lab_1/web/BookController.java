@@ -7,11 +7,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mk.finki.ukim.mk.lab_1.dto.createDto.CreateBookDto;
 import mk.finki.ukim.mk.lab_1.dto.displayDto.DisplayBookDto;
 import mk.finki.ukim.mk.lab_1.dto.updateDto.UpdateBookDto;
+import mk.finki.ukim.mk.lab_1.model.enums.Category;
 import mk.finki.ukim.mk.lab_1.model.views.BooksPerAuthorView;
 import mk.finki.ukim.mk.lab_1.service.application.BookApplicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -121,4 +123,13 @@ public class BookController {
         return bookApplicationService.getBooksCountByAuthor();
     }
 
+    @GetMapping("/categories")
+    @Operation(summary = "Get all book categories", description = "Returns a list of all available book categories as enum values")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved the list of categories"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public ResponseEntity<Category[]> getAllCategories() {
+        return ResponseEntity.ok(Category.values());
+    }
 }
